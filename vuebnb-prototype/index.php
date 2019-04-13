@@ -16,7 +16,11 @@
 	</div>
 	<div id="app">
 		<div class="header">
-			<div class="header-img" v-bind:style="headerImageStyle"></div>
+			<div class="header-img" 
+				v-bind:style="headerImageStyle"
+				v-on:click="modalOpen = true">
+				<button class="view-photos">View Photos</button>
+			</div>
 		</div>
 		<div class="container">
 			<div class="heading">
@@ -26,9 +30,7 @@
 			<hr>
 			<div class="about">
 				<h3>About this listing</h3>
-				<p v-bind:class="{ contracted: contracted }">
-					{{ about }}
-				</p>
+				<p v-bind:class="{ contracted: contracted }">{{ about }}</p>
 				<button v-if="contracted" class="more" v-on:click="contracted = false">
 					+ More
 				</button>
@@ -57,6 +59,14 @@
 					</div>
 				</div>
 			</div>			
+		</div>
+		<div id="modal" v-bind:class="{ show:modalOpen }">
+			<button v-on:click="modalOpen = false" class="modal-close">
+				&times;
+			</button>
+			<div class="modal-content">
+				<img src="sample/header.jpg">
+			</div>
 		</div>
 	</div>
 	<script src="/node_modules/vue/dist/vue.js"></script>
