@@ -10,6 +10,11 @@ var app = new Vue({
 		contracted: true,
 		modalOpen: false
 	},
+	methods: {
+		escapeKeyListener:function (evt) {
+			this.modalOpen = !(evt.keyCode === 27 && this.modalOpen);
+		}
+	},
 	watch: {
 		modalOpen: function() {
 			var className = 'modal-open';
@@ -19,5 +24,11 @@ var app = new Vue({
 				document.body.classList.remove(className);
 			}
 		}
+	},
+	created: function(){
+		document.addEventListener('keyup', this.escapeKeyListener);
+	},
+	destroyed: function() {
+		document.removeEventListener('keyup', this.escapeKeyListener)
 	}
 });
