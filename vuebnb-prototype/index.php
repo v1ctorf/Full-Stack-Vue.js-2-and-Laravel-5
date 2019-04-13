@@ -29,7 +29,7 @@
 				<p v-bind:class="{ contracted: contracted }">
 					{{ about }}
 				</p>
-				<button class="more" v-on:click="contracted = false">
+				<button v-if="contracted" class="more" v-on:click="contracted = false">
 					+ More
 				</button>
 			</div>
