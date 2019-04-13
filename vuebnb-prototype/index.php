@@ -41,6 +41,16 @@
 						</div>
 					</div>
 				</div>
+				<div class="prices list">
+					<div class="title">
+						<strong>Prices</strong>
+					</div>
+					<div class="content">
+						<div class="list-item" v-for="price in prices">
+							{{ price.title }}: <strong>{{ price.value }}</strong>
+						</div>
+					</div>
+				</div>
 			</div>			
 		</div>
 	</div>
