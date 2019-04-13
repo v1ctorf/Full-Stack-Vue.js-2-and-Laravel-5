@@ -15,7 +15,7 @@
 	</div>
 	<div id="app">
 		<div class="header">
-			<div class="header-img"></div>
+			<div class="header-img" v-bind:style="headerImageStyle"></div>
 		</div>
 		<div class="container">
 			<div class="heading">
